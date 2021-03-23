@@ -7,29 +7,29 @@ using namespace std;
 class Point1 {
 protected:
     int x;
-    int dist1;
+    int distance;
 
 public:
-    explicit Point1(int valueX) {
-        x = valueX;
-        dist1 = valueX * valueX;
+    explicit Point1(int numberX) {
+        x = numberX;
+        distance = numberX * numberX;
     }
 
     Point1() {
         x = 0;
-        dist1 = 0;
+        distance = 0;
     }
 
-    void setX(int valueX) {
-        x = valueX;
-        dist1 = valueX * valueX;
+    void setX(int numberX) {
+        x = numberX;
+        distance = numberX * numberX;
     }
 
     virtual void info() {
         cout << x << endl;
     }
 
-    virtual int getDistance() { return dist1; }
+    virtual int getDistance() { return distance; }
 };
 
 //create class 2;
@@ -38,21 +38,21 @@ protected:
     int y;
 
 public:
-    Point2(int valueX, int valueY) : Point1(valueX) {
-        y = valueY;
-        dist1 = dist1 + valueY * valueY;
+    Point2(int numberX, int numberY) : Point1(numberX) {
+        y = numberY;
+        distance = distance + numberY * numberY;
     }
 
     Point2() : Point1() {
         y = 0;
-        dist1 = 0;
+        distance = 0;
     }
 
     void info() override {
         cout << x << " " << y << endl;
     }
 
-    int getDistance() override { return dist1; }
+    int getDistance() override { return distance; }
 };
 
 //create class 3;
@@ -61,9 +61,9 @@ class Point3 : public Point2 {
     int z;
 
 public:
-    Point3(int valueX, int valueY, int valueZ) : Point2(valueX, valueY) {
-        z = valueZ;
-        dist1 = dist1 + valueZ * valueZ;
+    Point3(int numberX, int numberY, int numberZ) : Point2(numberX, numberY) {
+        z = numberZ;
+        distance = distance + numberZ * numberZ;
     }
 
     Point3() : Point2() {
@@ -74,7 +74,7 @@ public:
         cout << x << " " << y << " " << z << endl;
     }
 
-    int getDistance() override { return dist1; }
+    int getDistance() override { return distance; }
 };
 
 int main() {
